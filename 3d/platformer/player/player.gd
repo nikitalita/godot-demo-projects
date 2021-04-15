@@ -1,4 +1,4 @@
-extends KinematicBody
+extends KinematicBody3D
 
 enum Anim {
 	FLOOR,
@@ -23,11 +23,12 @@ var linear_velocity = Vector3()
 var jumping = false
 var prev_shoot = false
 var shoot_blend = 0
+var gravity
 
-onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * ProjectSettings.get_setting("physics/3d/default_gravity_vector")
 
 
 func _ready():
+	gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * ProjectSettings.get_setting("physics/3d/default_gravity_vector")
 	get_node("AnimationTree").set_active(true)
 
 
